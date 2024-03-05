@@ -1,0 +1,53 @@
+name: pvlan-cEOS
+
+topology:
+  nodes:
+    ceos1:
+      kind: arista_ceos
+      image: ceos:4.31.2F
+      startup-config: ./configs/ceos1.conf
+    ceos2:
+      kind: arista_ceos
+      image: ceos:4.31.2F
+      startup-config: ./configs/ceos2.conf
+    ceos3:
+      kind: arista_ceos
+      image: ceos:4.31.2F
+      startup-config: ./configs/ceos3.conf
+    ceos4:
+      kind: arista_ceos
+      image: ceos:4.31.2F
+      startup-config: ./configs/ceos4.conf
+    ceos-fw:
+      kind: arista_ceos
+      image: ceos:4.31.2F
+      startup-config: ./configs/ceos-fw.conf
+    ceos-host1:
+      kind: arista_ceos
+      image: ceos:4.31.2F
+      startup-config: ./configs/ceos-host1.conf
+    ceos-host2:
+      kind: arista_ceos
+      image: ceos:4.31.2F
+      startup-config: ./configs/ceos-host2.conf
+    ceos-host3:
+      kind: arista_ceos
+      image: ceos:4.31.2F
+      startup-config: ./configs/ceos-host3.conf
+    ceos-host4:
+      kind: arista_ceos
+      image: ceos:4.31.2F
+      startup-config: ./configs/ceos-host4.conf
+
+  links:
+    - endpoints: ["ceos1:eth1", "ceos3:eth1"]
+    - endpoints: ["ceos1:eth2", "ceos4:eth1"]
+    - endpoints: ["ceos1:eth3", "ceos2:eth3"]
+    - endpoints: ["ceos1:eth4", "ceos2:eth4"]
+    - endpoints: ["ceos2:eth1", "ceos3:eth2"]
+    - endpoints: ["ceos2:eth2", "ceos4:eth2"]
+    - endpoints: ["ceos-fw:eth1", "ceos3:eth3"]
+    - endpoints: ["ceos3:eth4", "ceos-host1:eth1"]
+    - endpoints: ["ceos3:eth4", "ceos-host2:eth1"]
+    - endpoints: ["ceos4:eth3", "ceos-host3:eth1"]
+    - endpoints: ["ceos4:eth4", "ceos-host4:eth1"]
