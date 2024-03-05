@@ -48,6 +48,6 @@ topology:
     - endpoints: ["ceos2:eth2", "ceos4:eth2"]
     - endpoints: ["ceos-fw:eth1", "ceos3:eth3"]
     - endpoints: ["ceos3:eth4", "ceos-host1:eth1"]
-    - endpoints: ["ceos3:eth4", "ceos-host2:eth1"]
+    - endpoints: ["ceos3:eth5", "ceos-host2:eth1"]
     - endpoints: ["ceos4:eth3", "ceos-host3:eth1"]
     - endpoints: ["ceos4:eth4", "ceos-host4:eth1"]
