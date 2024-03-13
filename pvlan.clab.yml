@@ -18,6 +18,10 @@ topology:
       kind: arista_ceos
       image: ceos:4.31.2F
       startup-config: ./configs/ceos4.conf
+    ceos5:
+      kind: arista_ceos
+      image: ceos:4.31.2F
+      startup-config: ./configs/ceos5.conf
     ceos-fw:
       kind: arista_ceos
       image: ceos:4.31.2F
@@ -38,16 +42,40 @@ topology:
       kind: arista_ceos
       image: ceos:4.31.2F
       startup-config: ./configs/ceos-host4.conf
+    ceos-host5:
+      kind: arista_ceos
+      image: ceos:4.31.2F
+      startup-config: ./configs/ceos-host5.conf
+    ceos-host6:
+      kind: arista_ceos
+      image: ceos:4.31.2F
+      startup-config: ./configs/ceos-host6.conf
+    ceos-host7:
+      kind: arista_ceos
+      image: ceos:4.31.2F
+      startup-config: ./configs/ceos-host7.conf
+    ceos-host8:
+      kind: arista_ceos
+      image: ceos:4.31.2F
+      startup-config: ./configs/ceos-host8.conf
+    ceos-host9:
+      kind: arista_ceos
+      image: ceos:4.31.2F
+      startup-config: ./configs/ceos-host9.conf
 
   links:
     - endpoints: ["ceos1:eth1", "ceos3:eth1"]
     - endpoints: ["ceos1:eth2", "ceos4:eth1"]
-    - endpoints: ["ceos1:eth3", "ceos2:eth3"]
-    - endpoints: ["ceos1:eth4", "ceos2:eth4"]
     - endpoints: ["ceos2:eth1", "ceos3:eth2"]
     - endpoints: ["ceos2:eth2", "ceos4:eth2"]
     - endpoints: ["ceos-fw:eth1", "ceos3:eth3"]
     - endpoints: ["ceos3:eth4", "ceos-host1:eth1"]
     - endpoints: ["ceos3:eth5", "ceos-host2:eth1"]
-    - endpoints: ["ceos4:eth3", "ceos-host3:eth1"]
-    - endpoints: ["ceos4:eth4", "ceos-host4:eth1"]
+    - endpoints: ["ceos3:eth6", "ceos-host3:eth1"]
+    - endpoints: ["ceos4:eth3", "ceos-host4:eth1"]
+    - endpoints: ["ceos4:eth4", "ceos-host5:eth1"]
+    - endpoints: ["ceos4:eth5", "ceos-host6:eth1"]
+    - endpoints: ["ceos4:eth6", "ceos5:eth1"]
+    - endpoints: ["ceos5:eth2", "ceos-host7:eth1"]
+    - endpoints: ["ceos5:eth3", "ceos-host8:eth1"]
+    - endpoints: ["ceos5:eth4", "ceos-host9:eth1"]
