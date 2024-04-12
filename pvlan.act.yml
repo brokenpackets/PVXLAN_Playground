@@ -1,0 +1,110 @@
+veos:
+  # Define the global vEOS node parameters
+  username: cvpadmin
+  password: arista123
+  version: 4.31.2F
+
+generic:
+  # Define global generic node parameters
+  username: cvpadmin
+  password: arista123
+  version: ubuntu-2204-lts
+
+# List of ACT nodes
+nodes:
+  - ceos1:
+      ip_addr: 192.168.0.11
+      node_type: veos
+  - ceos2:
+      ip_addr: 192.168.0.12
+      node_type: veos
+  - ceos3:
+      ip_addr: 192.168.0.13
+      node_type: veos
+  - ceos4:
+      ip_addr: 192.168.0.14
+      node_type: veos
+  - ceos5:
+      ip_addr: 192.168.0.15
+      node_type: veos
+  - ceos-fw:
+      ip_addr: 192.168.0.20
+      node_type: veos
+  - ceos-host1:
+      ip_addr: 192.168.0.21
+      node_type: veos
+  - ceos-host2:
+      ip_addr: 192.168.0.22
+      node_type: veos
+  - ceos-host3:
+      ip_addr: 192.168.0.23
+      node_type: veos
+  - ceos-host4:
+      ip_addr: 192.168.0.24
+      node_type: veos
+  - ceos-host5:
+      ip_addr: 192.168.0.25
+      node_type: veos
+  - ceos-host6:
+      ip_addr: 192.168.0.26
+      node_type: veos
+  - ceos-host7:
+      ip_addr: 192.168.0.27
+      node_type: veos
+  - ceos-host8:
+      ip_addr: 192.168.0.28
+      node_type: veos
+  - ceos-host9:
+      ip_addr: 192.168.0.29
+      node_type: veos
+
+  - ansible:
+      ip_addr: 192.168.0.6
+      node_type: generic
+links:
+  ## Backbone links ##
+    - connection:
+        - ceos1:Ethernet1
+        - ceos3:Ethernet1
+    - connection:
+        - ceos1:Ethernet2
+        - ceos4:Ethernet1
+    - connection:
+        - ceos2:Ethernet1
+        - ceos3:Ethernet2
+    - connection:
+        - ceos2:Ethernet2
+        - ceos4:Ethernet2
+    - connection:
+        - ceos-fw:Ethernet1
+        - ceos3:Ethernet3
+    - connection:
+        - ceos3:Ethernet4
+        - ceos-host1:Ethernet1
+    - connection:
+        - ceos3:Ethernet5
+        - ceos-host2:Ethernet1
+    - connection:
+        - ceos3:Ethernet6
+        - ceos-host3:Ethernet1
+    - connection:
+        - ceos4:Ethernet3
+        - ceos-host4:Ethernet1
+    - connection:
+        - ceos4:Ethernet4
+        - ceos-host5:Ethernet1
+    - connection:
+        - ceos4:Ethernet5
+        - ceos-host6:Ethernet1
+    - connection:
+        - ceos4:Ethernet6
+        - ceos5:Ethernet1
+    - connection:
+        - ceos5:Ethernet2
+        - ceos-host7:Ethernet1
+    - connection:
+        - ceos5:Ethernet3
+        - ceos-host8:Ethernet1
+    - connection:
+        - ceos5:Ethernet4
+        - ceos-host9:Ethernet1
